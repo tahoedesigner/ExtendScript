@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+Copyright 2002-2007.  Adobe Systems, Incorporated.  All rights reserved.
+Adobe Photoshop CS4 Sample Script
+-->
+<mx:Application 
+    xmlns:mx="http://www.adobe.com/2006/mxml" 
+    viewSourceURL="srcview/index.html"
+    horizontalAlign="center" verticalAlign="middle" 
+    width="650" height="550">
+    <mx:HTTPService 
+        id="feedRequestAdobeBlog" 
+        url="http://blogs.adobe.com/jnack/index.xml" 
+        useProxy="false" />
+    <mx:HTTPService 
+        id="feedRequestPhotoshopTV" 
+        url="http://feeds.feedburner.com/photoshoptv" 
+        useProxy="false" />
+	<mx:Script>
+		<![CDATA[
+        import mx.managers.CursorManager;
+        import mx.controls.Alert;
+		import mx.collections.ArrayCollection;
+		
+		// ************************************
+        // Exit App
+        // ************************************  						
+        public function callExitApp():void {
+			var f:String = "exitApp";
+            var m:String = ExternalInterface.call(f);
+            trace(m); 
+            }                                                        
+		private function callExitAppLabel( event:MouseEvent):void {
+			txtLabelTab1.text = "Exit Flash Sample.";
+			}
+                            
+		// ************************************
+        // TAB 1: Sample Scripts in Scripting Guid
+        // ************************************           
+        public function callSampleApplication():void {
+        	var f:String = "sampleApplication";
+            var m:String = ExternalInterface.call(f);
+            trace(m); 
+            txtLabelTab1.text = m.toString();
+            Alert.show(m.toString(), 'Photoshop Scripting',mx.controls.Alert.OK);
+            }
+		
+		public function callSampleArtLayer():void {
+            var f:String = "sampleArtLayer";
+            var m:String = ExternalInterface.call(f);
+            trace(m); 
+            txtLabelTab1.text = m.toString();
+            Alert.show(m.toString(), 'Photoshop Scripting',mx.controls.Alert.OK);
+            }
+		public function callSampleHistogram():void {
+        	var f:String = "sampleHistogram";
+            var m:String = ExternalInterface.call(f);
+            trace(m); 
+            txtLabelTab1.text = m.toString();
+            Alert.show(m.toString(), 'Photoshop Scripting',mx.controls.Alert.OK);
+            }          
+		public function callSampleDocument():void {
+        	var f:String = "sampleDocument";
+            var m:String = ExternalInterface.call(f);
+            trace(m); 
+            txtLabelTab1.text = m.toString();
+            Alert.show(m.toString(), 'Photoshop Scripting',mx.controls.Alert.OK);
+            }          
+		public function callSampleDocumentInfo():void {
+        	var f:String = "sampleDocumentInfo";
+            var m:String = ExternalInterface.call(f);
+            trace(m); 
+            txtLabelTab1.text = m.toString();
+            Alert.show(m.toString(), 'Photoshop Scripting',mx.controls.Alert.OK);
+            }
+		public function callSampleLayerSets():void {
+        	var f:String = "sampleLayerSets";
+            var m:String = ExternalInterface.call(f);
+            trace(m); 
+            txtLabelTab1.text = m.toString();
+            Alert.show(m.toString(), 'Photoshop Scripting',mx.controls.Alert.OK);
+            }
+		public function callSamplePaths():void {
+        	var f:String = "samplePaths";
+            var m:String = ExternalInterface.call(f);
+            trace(m); 
+            txtLabelTab1.text = m.toString();
+            Alert.show(m.toString(), 'Photoshop Scripting',mx.controls.Alert.OK);
+            }
+		public function callSampleSelection():void {
+        	var f:String = "sampleSelection";
+            var m:String = ExternalInterface.call(f);
+            trace(m); 
+            txtLabelTab1.text = m.toString();
+            Alert.show(m.toString(), 'Photoshop Scripting',mx.controls.Alert.OK);
+            }
+
+		// ************************************                 
+        private function callSampleApplicationLabel( event:MouseEvent):void {
+        	txtLabelTab1.text = "This script displays Properties important to an application such as version number, the path to the application, and the amount of memory available.";
+        }
+        private function callSampleArtLayerLabel( event:MouseEvent):void {
+        	txtLabelTab1.text = "This script creates a multi-layered collage displays by using all *.psd fliles from Adobe Photoshop CS4 Samples folder.";
+        }
+        private function callSampleHistogramLabel( event:MouseEvent):void {
+        	txtLabelTab1.text = "This script opens a file if one is not already open, and then writes a histogram report (histogram.log) for the channels in the active document.";
+        }
+        private function callSampleDocumentLabel( event:MouseEvent):void {
+        	txtLabelTab1.text = "This script creates a document that contains two images (a Vanishing Point and a Smart Objects) obtained from the Adobe Photoshop CS4 Samples folder and employs the following steps:\n" + 
+        			"\n" +
+        			"- Determines which image is larger. \n" + 
+        			"- Resizes the smaller image to match the larger image. \n" + 
+        			"- Creates a merged document twice as high as either image in order to hold both images. \n" + 
+        			"- Selects part of the document to and pastes the Vanishing Point into the selection. \n" + 
+        			"- Inverts the selection and pastes the Smart Objects into the lower part of the document. \n" + 
+        			"- Positions the Vanishing Point over the Smart Objects.";}                            
+						private function callSampleDocumentInfoLabel( event:MouseEvent):void {
+        	txtLabelTab1.text = "This script sets document info (metadata) for all of the files in a specified folder and then saves the modified files as low-quality JPEG images in a new folder without changing the originals.\n" + 
+       				"\n" +
+       				"- Ask the user to specify the folder that contains the original files and the output folder for the JPEG images, and then check that the folders exist. \n" + 
+       				"	author: Mr. Adobe programmer \n" + 
+       				"	caption: Adobe Photo shoot \n" + 
+       				"	captionWriter: Mr. Adobe programmer \n" + 
+                    "	city: San Jose \n" + 
+                    "	copyrightNotice: Copyright (c) Adobe programmer Photography \n" + 
+                    "	copyrighted status: Copyrighted Work \n" + 
+					"	country: USA \n" + 
+					"	state: CA \n" + 
+                    "- Save the new documents in JPEG format with a low quality setting.";}   
+		private function callSampleLayerSetsLabel( event:MouseEvent):void {
+			txtLabelTab1.text = "This script creates three layer sets, then nests a second layer set in each layer set, and then creates a text layer in each nested set that that displays the text “Layer in n Set Inside n Set”, where n represents the ordinal number of the set (first, second, or third).";
+		}
+        private function callSamplePathsLabel( event:MouseEvent):void {
+        	txtLabelTab1.text = "This script creates a path in three segments: two diagonal lines that form a V, and a curved line above the V that makes it look like a 2D ice cream cone.";
+        }
+        private function callSampleSelectionLabel( event:MouseEvent):void {
+        	txtLabelTab1.text = "This script creates a checkerboard using the following steps:\n" + 
+        			"\n" +
+        			"- Create an 800 x 800 pixel document. \n" + 
+        			"- Divide the entire document into 100 x 100 pixel squares. \n" + 
+        			"- Select every other square in the first row, then shift the selection criteria to select the alternate squares in the following row. Repeat until every other square in the document is selected. \n" + 
+        			"- Fill the selected squares with the foreground color from the palette. \n" + 
+        			"- Invert the selection and fill the newly selected squares with the background color from the palette. \n" + 
+        			"- Deselect the squares to remove the selection outlines (the marching ants).";
+        			}
+        private function callDefaultLabel( event:MouseEvent):void {
+			txtLabelTab1.text = "Welcome to Flash in a dialog.  This script is created using Flex Builder 2.0.  Please see the mxml file for the source of the swf project.";
+        }
+
+		// ************************************
+        // TAB 2: New Document
+        // ************************************                               
+		public function callSampleAddNewDoc():void {
+			var docName:String = txtSampleAddNewDocName.text;
+        	var docWidth:String = txtSampleAddNewDocWidth.text;
+            var docHeight:String = txtSampleAddNewDocHeight.text;
+            var docResolution:String = txtSampleAddNewDocResolution.text;
+            var docWHunit:String = cbSampleAddNewDocWidth.selectedLabel;
+            var docNum:String = cbSampleAddNewNumDoc.selectedLabel;
+            
+            if ( docName == "" ) {
+            	Alert.show('Please enter new document name.');
+            }
+            else if( docWidth == "" ) {
+            	Alert.show('Please enter Width.');
+            }
+            else if ( docHeight == "" ) {
+            	Alert.show('Please enter Height.');
+            }
+            else if ( docResolution == "" ) {
+            	Alert.show('Please enter Resolution.');
+            }
+            else if (docName != "" && docWidth != "" && docHeight != "" && docResolution != "") {
+            	var f:String = "sampleAddNewDoc";
+	            var m:String = ExternalInterface.call(f,docName,docWidth,docHeight,docResolution,docWHunit,docNum);
+				var fCount:String = "samplCountOpenDocs";
+        	    var mCount:String = ExternalInterface.call(fCount);
+        	    
+            	trace(m); 
+            	var mDocName:String = m.toString();
+   	            trace(mCount); 
+   	            var mCountNum:String = mCount.toString();
+   	            
+	            Alert.show('New document is created. \n' + 
+	            		'New document name is: ' + mDocName + '\n' +
+	            		'You currently have ' + mCountNum + ' document(s) open.', 'Photoshop Scripting',mx.controls.Alert.OK);
+	            callSampleFavoriteColor();
+            }                   
+  		}
+  		public function callSampleFavoriteColor():void {
+	        var foreC:String = cpFore.selectedColor.toString(16);
+	        var backC:String = cpBack.selectedColor.toString(16);
+                            	
+	        var f:String = "sampleFavoriteColor";
+	        var m:String = ExternalInterface.call(f,foreC,backC);
+	        trace(m); 
+		}
+		[Bindable]
+        public var unitsAddNewWH: Array = [ 
+        	{label:"pixels", data:1},
+        	{label:"inches", data:2},
+        	{label:"cm", data:3},
+        	{label:"mm", data:4},
+        	{label:"points", data:5},
+        	{label:"picas", data:6}
+        	];
+		[Bindable]
+        public var unitsAddNewWHselectedItem:Object; 
+        [Bindable]
+        public var unitsAddNewResolution: Array = [ 
+        	{label:"pixels/inches", data:1},
+        	{label:"pixels/cm", data:2}
+        	];
+        [Bindable]
+        public var unitsAddNewResolutionselectedItem:Object;
+        [Bindable]
+        public var numDocsSelectedItem:Object; 
+        [Bindable]
+        public var numDocs: Array = [ 
+        	{label:"1", data:1},
+        	{label:"2", data:2},
+        	{label:"3", data:3},
+        	{label:"4", data:4},
+        	{label:"5", data:5}
+        	];
+
+		// ***********************************
+		// TAB 3: Histogram
+		// ***********************************      
+		public var myItem:Object = new Object();
+		public var arrayHistogramLength:int;
+		[Bindable]
+		public var maxData:int = 0;
+		[Bindable]
+		public var myHistogramAC:ArrayCollection = new ArrayCollection();								
+					
+		public function browseHistogramFile():void {
+			
+			var f:String = "openFileHistogram";
+	        var m:String = ExternalInterface.call(f);
+	        trace(m);
+	        
+	        var myHistogramDoc:String = m.toString();
+	        txtHistogtamDocName.text = myHistogramDoc;
+	        
+	        if(myHistogramDoc != ""){
+	        	callSampleGetHistogramPreference( );
+	        	btnHistogramOK.enabled = true;
+	        	hSlider.enabled = true;
+	        	myHistogramAC.removeAll();
+	        	
+	        } else {
+	        	Alert.show('Click Browse button to open the file.', 'Photoshop Scripting',mx.controls.Alert.OK);
+	        }
+		}
+		
+		public function changeSize():void{
+
+			var myTempMaxData:int = hSlider.value;
+        	callSampleGetHistogram();                            	
+			maxData = myTempMaxData;
+        }
+        
+		public function callSampleGetHistogram():void {            	
+
+            try{               	         	
+	          	CursorManager.setBusyCursor();
+                myHistogramAC.removeAll();
+
+				var f:String = "sampleGetHistogram";
+	            var m:Array = ExternalInterface.call(f);
+	            trace(m); 	
+	            var arrayHistogram:Array = m;
+	            arrayHistogramLength = m.length;                                             
+
+				try{
+					myHistogramAC = new ArrayCollection();
+					myItem = new Object();
+					
+					for (var iim:int=0; iim<256; iim++ ){
+
+						for(var im:int=0; im < arrayHistogramLength; im++){
+							var myLabel:String = arrayHistogram[im][1].toString();
+							var valueHistogram:String = arrayHistogram[im][0].toString();
+							var queryHistogramArray:Array = valueHistogram.split(",");											
+							myItem.Histogram = iim;
+							if (myLabel == "Red"){
+								if (cbRed.selected == true){
+									myItem.Red = queryHistogramArray[iim];
+									if (queryHistogramArray[iim] > maxData){
+										maxData = queryHistogramArray[iim];
+									    }
+								}
+							} else if (myLabel == "Green"){
+								if (cbGreen.selected == true)
+								{
+									myItem.Green = queryHistogramArray[iim];
+									if (queryHistogramArray[iim] > maxData){
+									   	maxData = queryHistogramArray[iim];
+									}
+								}
+							} else if (myLabel == "Blue"){
+								if (cbBlue.selected == true)
+								{
+									myItem.Blue = queryHistogramArray[iim];
+									if (queryHistogramArray[iim] > maxData){
+										maxData = queryHistogramArray[iim];
+									}
+								}
+							} else if (myLabel == "Gray"){
+								if (cbGray.selected == true)
+								{
+									myItem.Gray = queryHistogramArray[iim];	
+									if (queryHistogramArray[iim] > maxData){
+										maxData = queryHistogramArray[iim];
+									}
+								}
+							} else if (myLabel == "Luminosity"){
+								if (cbLuminosity.selected == true)
+								{
+									myItem.Luminosity = queryHistogramArray[iim];
+									if (queryHistogramArray[iim] > maxData){
+										maxData = queryHistogramArray[iim];
+									}
+								}
+							} else if (myLabel == "Cyan"){
+								if (cbCyan.selected == true)
+								{
+									myItem.Cyan = queryHistogramArray[iim];
+									if (queryHistogramArray[iim] > maxData){
+										maxData = queryHistogramArray[iim];
+									}
+								}
+							} else if (myLabel == "Magenta"){
+								if (cbMagenta.selected == true)
+								{
+									myItem.Magenta = queryHistogramArray[iim];
+									if (queryHistogramArray[iim] > maxData){
+										maxData = queryHistogramArray[iim];
+									}
+								}
+							} else if (myLabel == "Yellow"){
+								if (cbYellow.selected == true)
+								{
+									myItem.Yellow = queryHistogramArray[iim];
+									if (queryHistogramArray[iim] > maxData){
+										maxData = queryHistogramArray[iim];
+									}
+								}
+							} else if (myLabel == "Black"){
+								if (cbBlack.selected == true)
+								{
+									myItem.Black = queryHistogramArray[iim];
+									if (queryHistogramArray[iim] > maxData){
+										maxData = queryHistogramArray[iim];
+									}
+								}
+							} else {
+								// Do nothing.
+							}
+						}
+						myHistogramAC.addItem( myItem );
+						//Alert.show(ObjectUtil.toString(myItem)); 						   				
+						myItem = new Object();
+						}
+			   		} catch (error:Error){
+						Alert.show("Error: " + error.message);
+					}                    	
+					hSlider.maximum = maxData;
+
+				} catch (error:Error) {
+					Alert.show(error.message);
+				}
+				CursorManager.removeBusyCursor();
+            }
+            private function callSampleGetHistogramPreference( ):void {
+                            	
+            	var f:String = "getDocMode";
+	        	var m:String = ExternalInterface.call(f);
+	            trace(m);
+	                            
+	            var myReturnValue:Array = m.split(",");
+     	        var colorMode:String = myReturnValue[0].toString();
+     	        var docName:String = myReturnValue[1].toString();
+
+				if (colorMode == "rgb"){
+					
+	            	cbRed.enabled = true;
+	                cbGreen.enabled = true;
+	                cbBlue.enabled = true;
+	                cbLuminosity.enabled = true;
+
+	            	cbRed.selected = true;
+	                cbGreen.selected = true;
+	                cbBlue.selected = true;
+	                cbLuminosity.selected = true;
+
+	                cbCyan.enabled = false;
+	                cbMagenta.enabled = false;
+	                cbYellow.enabled = false;
+	                cbBlack.enabled = false;
+	                cbGray.enabled = false;
+	                	                	                	                
+	                cbCyan.selected = false;
+	                cbMagenta.selected = false;	                            	
+	                cbYellow.selected = false;	                            	
+	                cbBlack.selected = false;	                            	
+	                cbGray.selected = false;	
+	                                            	
+				} else if (colorMode == "index"){
+					
+	            	cbRed.enabled = false;
+	                cbGreen.enabled = false;
+	                cbBlue.enabled = false;
+	                cbLuminosity.enabled = false;
+	                cbCyan.enabled = false;
+	                cbMagenta.enabled = false;
+	                cbYellow.enabled = false;
+	                cbBlack.enabled = false;
+	                            	
+	                cbRed.selected = false;
+	                cbGreen.selected = false;
+	                cbBlue.selected = false;
+	                cbLuminosity.selected = false;
+	                cbCyan.selected = false;
+	                cbMagenta.selected = false;
+	                cbYellow.selected = false;
+	                cbBlack.selected = false;
+	                
+	                cbGray.enabled = true;
+	                cbGray.selected = true;	                
+				} else if (colorMode == "cmyk"){
+	            	cbRed.enabled = false;
+	                cbGreen.enabled = false;
+	                cbBlue.enabled = false;
+	                cbGray.enabled = false;
+	                            	
+	                cbRed.selected = false;
+	                cbGreen.selected = false;
+	                cbBlue.selected = false;
+	                cbGray.selected = false;
+	                            		                            	
+	                cbLuminosity.enabled = true;
+	                cbCyan.enabled = true;
+	                cbMagenta.enabled = true;
+	                cbYellow.enabled = true;
+	                cbBlack.enabled = true;
+	                
+	                cbLuminosity.selected = true;
+	                cbCyan.selected = true;
+	                cbMagenta.selected = true;
+	                cbYellow.selected = true;
+	                cbBlack.selected = true;
+	                	                
+				} else {
+	            	cbRed.enabled = true;
+	                cbGreen.enabled = true;
+	                cbBlue.enabled = true;
+	                cbLuminosity.enabled = true;
+	                cbCyan.enabled = true;
+	                cbMagenta.enabled = true;
+	                cbYellow.enabled = true;
+	                cbBlack.enabled = true;
+	                cbGray.enabled = true;
+	                
+	                cbRed.selected = true;
+	                cbGreen.selected = true;
+	                cbBlue.selected = true;
+	                cbLuminosity.selected = true;
+	                cbCyan.selected = true;
+	                cbMagenta.selected = true;
+	                cbYellow.selected = true;
+	                cbBlack.selected = true;
+	                cbGray.selected = true;
+				}                           	
+			}                            
+
+		// ***********************************
+		// TAB 4: Photoshop TV
+		// ***********************************    
+		public var psTV:URLRequest = new URLRequest("http://www.photoshoptv.com");   
+
+		]]>
+	</mx:Script>    
+	<mx:VBox width="100%" height="100%" >
+    <mx:VBox width="100%" height="100%" horizontalAlign="right">
+        <mx:Text width="100%" text="Photoshop Scripting - Flash UI Samples" id="txtTitle" fontWeight="bold" fontSize="12"/>
+        <mx:TabNavigator width="100%" height="100%">
+            <!-- ******************************************** -->
+            <!-- Tab 1: Scripting Guide -->
+            <!-- ******************************************** -->
+            <mx:Canvas label="Scripting Guide" width="100%" height="100%">
+                <mx:Panel 
+                    title="Sample Scripts in Scripting Guide (JavaScript Reference Guide.pdf)" 
+                    paddingTop="10" paddingBottom="10" 
+                    paddingLeft="10" paddingRight="10" 
+                    layout="absolute"
+                 	height="95%" width="97%" verticalAlign="top" x="10" y="10">
+                    
+                    <mx:Canvas width="98%" height="95%" x="6" y="10">
+                        <mx:Button label="Selection.jsx" x="16" y="244" id="btnSelectionSample" width="135" height="25" mouseOver="callSampleSelectionLabel(event)" mouseOut="callDefaultLabel(event)" click="callSampleSelection();"/>
+                        <mx:Button x="16" y="13" label="Application.jsx" id="btnApplication" width="135" mouseOver="callSampleApplicationLabel(event)" mouseOut="callDefaultLabel(event)" click="callSampleApplication();" height="25"/>
+                        <mx:Button x="16" y="46" label="ArtLayer.jsx" width="135" id="btnSampleArtLayer" mouseOver="callSampleArtLayerLabel(event)" mouseOut="callDefaultLabel(event)" click="callSampleArtLayer();" height="25"/>
+                        <mx:Button x="16" y="79" label="Histogram.jsx" width="135" id="btnSampleHistogram" mouseOver="callSampleHistogramLabel(event)" mouseOut="callDefaultLabel(event)" click="callSampleHistogram();" height="25"/>
+                        <mx:Button x="16" y="112" label="Document.jsx" width="135" id="btnSampleDocument" mouseOver="callSampleDocumentLabel(event)" mouseOut="callDefaultLabel(event)" click="callSampleDocument();" height="25"/>
+                        <mx:Button x="16" y="145" label="DocumentInfo.jsx" width="135" id="btnSampleDocumentInfo" mouseOver="callSampleDocumentInfoLabel(event)" mouseOut="callDefaultLabel(event)" click="callSampleDocumentInfo();" height="25"/>
+                        <mx:Button x="16" y="178" label="LayerSets.jsx" width="135" id="btnSampleLayerSets" mouseOver="callSampleLayerSetsLabel(event)" mouseOut="callDefaultLabel(event)" click="callSampleLayerSets();" height="25"/>
+                        <mx:Button x="16" y="211" label="Paths.jsx" width="135" id="btnSamplePaths" mouseOver="callSamplePathsLabel(event)" mouseOut="callDefaultLabel(event)" click="callSamplePaths();" height="25"/>
+                        <mx:TextArea height="303" id="txtLabelTab1" width="363" fontSize="10" borderStyle="solid" x="168" y="13" cornerRadius="5" wordWrap="true" editable="false">
+                            <mx:text>Welcome to Flash in a dialog. This script is created using Flex Builder 2.0. Please see the mxml file for the source of the Flex project.</mx:text>
+                        </mx:TextArea>
+                    </mx:Canvas>
+                
+                
+                </mx:Panel>
+            </mx:Canvas>
+            
+            <!-- ******************************************** -->
+            <!-- Tab 2: New Document -->
+            <!-- ******************************************** -->
+            <mx:Canvas label="New Document" width="100%" height="100%">
+                <mx:Panel 
+                    title="Sample Scripts - Create New Document" 
+                    paddingTop="10" paddingBottom="10" 
+                    paddingLeft="10" paddingRight="10" 
+                    layout="absolute"
+                 height="95%" width="97%" verticalAlign="top" x="10" y="10">
+                    <mx:TextInput x="214.25" y="76" id="txtSampleAddNewDocName"/>
+                    <mx:Label x="158.25" y="106" text="Width:" id="lblWidth"/>
+                    <mx:Label x="98.25" y="77" text="Document Name:" id="lblDocName"/>
+                    <mx:Label x="154.25" y="136" text="Height:" id="lblHeight"/>
+                    <mx:Label x="131.25" y="166" text="Resolution:" id="lblResolution"/>
+                    <mx:Label x="92.25" y="204" text="Foreground Color:" id="lblForeColor"/>
+                    <mx:Label x="92.25" y="240" text="Background Color:" id="lblBackColor"/>
+                    <mx:Label x="66.25" y="281" text="Number of Documents:" id="lblNumDocs"/>
+                    <mx:TextInput x="214.25" y="106" id="txtSampleAddNewDocWidth"/>
+                    <mx:ComboBox x="385.75" y="107" width="110" id="cbSampleAddNewDocWidth" dataProvider="{unitsAddNewWH}" close="unitsAddNewWHselectedItem=ComboBox(event.target).selectedItem" change="cbSampleAddNewDocHeight.selectedItem=ComboBox(event.target).selectedItem"></mx:ComboBox>
+                    <mx:ComboBox x="385.75" y="136" width="110" id="cbSampleAddNewDocHeight" dataProvider="{unitsAddNewWH}" close="unitsAddNewWHselectedItem=ComboBox(event.target).selectedItem" change="cbSampleAddNewDocWidth.selectedItem=ComboBox(event.target).selectedItem"></mx:ComboBox>
+                    <mx:ComboBox x="214.25" y="279" width="57" id="cbSampleAddNewNumDoc" dataProvider="{numDocs}" close="unitsAddNewWHselectedItem=ComboBox(event.target).selectedItem" change="cbSampleAddNewNumDoc.selectedItem=ComboBox(event.target).selectedItem"></mx:ComboBox>
+                    <mx:TextInput x="214.25" y="136" id="txtSampleAddNewDocHeight"/>
+                    <mx:TextInput x="214.25" y="166" id="txtSampleAddNewDocResolution"/>
+                    <mx:ColorPicker x="214.25" y="198" width="30" height="30" id="cpFore"/>
+                    <mx:ColorPicker x="214.25" y="236" width="30" height="30" id="cpBack"/>
+                    <mx:TextArea x="10" y="10" width="97%" cornerRadius="5">
+                        <mx:text>This script creates a new document, set foreground and background colors, and displays current open documents.</mx:text>
+                    </mx:TextArea>
+                    <mx:Button x="385.75" y="308" label="Create New Document" id="btnCreateNewDoc" click="callSampleAddNewDoc();"/>
+                    <mx:Label x="385.75" y="169" text="Pixels/inches" id="lblResolutionUnit"/>
+                <!--
+                    <mx:ComboBox x="323" y="174" width="110" id="cbSampleAddNewDocResolution" dataProvider="{unitsAddNewResolution}" close="unitsAddNewResolutionselectedItem=ComboBox(event.target).selectedItem"></mx:ComboBox>
+                -->                            
+                </mx:Panel>
+            </mx:Canvas>
+            <!-- ******************************************** -->
+            <!-- Tab 3: Histogram -->
+            <!-- ******************************************** -->
+            <mx:Canvas label="Histogram" width="100%" height="100%">
+                <mx:Panel x="10" y="10" width="97%" height="95%" layout="absolute" id="panelHistogram" title="Sample Script - Get Histogram">
+                 <mx:AreaChart id="acHistogram" height="251" width="425"
+                         paddingLeft="5" paddingRight="5"
+                         showDataTips="true" dataProvider="{myHistogramAC}" visible="true" x="102" y="89">
+                       	<mx:verticalAxis>
+                       	<mx:LinearAxis minimum="0" maximum="{maxData}" interval="15" />
+                       	</mx:verticalAxis>
+                        
+                        <mx:horizontalAxis>
+                            <mx:CategoryAxis dataProvider="{myHistogramAC}" categoryField="Histogram" />
+                        </mx:horizontalAxis>
+                        
+                        <mx:series>
+                            <mx:AreaSeries yField="Red" form="segment" displayName="Red">
+                            	<mx:areaFill>
+                            	<mx:SolidColor color="0xff0000"/>
+                            	</mx:areaFill>	
+                            </mx:AreaSeries> 			
+                            <mx:AreaSeries yField="Green" form="segment" displayName="Green">
+                            	<mx:areaFill>
+                            	<mx:SolidColor color="0x00ff00"/>
+                            	</mx:areaFill>	
+                            </mx:AreaSeries> 			
+                            <mx:AreaSeries yField="Blue" form="segment" displayName="Blue">
+                            	<mx:areaFill>
+                            	<mx:SolidColor color="0x0000ff"/>
+                            	</mx:areaFill>
+                            </mx:AreaSeries> 				
+                            <mx:AreaSeries yField="Gray" form="segment" displayName="Gray">
+                            	<mx:areaFill>
+                            	<mx:SolidColor color="0x999999"/>
+                            	</mx:areaFill>	
+                            </mx:AreaSeries> 			
+                            <mx:AreaSeries yField="Luminosity" form="segment" displayName="Luminosity">
+                            	<mx:areaFill>
+                            	<mx:SolidColor color="0xffcc00"/>
+                            	</mx:areaFill>	
+                            </mx:AreaSeries> 			
+                            <mx:AreaSeries yField="Cyan" form="segment" displayName="Cyan">
+                            	<mx:areaFill>
+                            	<mx:SolidColor color="0x00ccff"/>
+                            	</mx:areaFill>	
+                            </mx:AreaSeries> 			  
+                            <mx:AreaSeries yField="Magenta" form="segment" displayName="Magenta">
+                            	<mx:areaFill>
+                            	<mx:SolidColor color="0xff00cc"/>
+                            	</mx:areaFill>	
+                            </mx:AreaSeries> 			  
+                            <mx:AreaSeries yField="Yellow" form="segment" displayName="Yellow">
+                            	<mx:areaFill>
+                            	<mx:SolidColor color="0xffff00"/>
+                            	</mx:areaFill>
+                            </mx:AreaSeries> 				  
+                            <mx:AreaSeries yField="Black" form="segment" displayName="Black">
+                            	<mx:areaFill>
+                            	<mx:SolidColor color="0x000000"/>
+                            	</mx:areaFill>				
+                            </mx:AreaSeries>                                                                 
+                        </mx:series>
+                    </mx:AreaChart>
+                    
+                    <mx:Legend dataProvider="{acHistogram}" id="legendHistogram" visible="true" x="13" y="93" height="247" width="88" fontSize="9"/>
+                    <mx:CheckBox x="15" y="41" label="Red" id="cbRed" selected="false" visible="true" enabled="false"/>
+                    <mx:CheckBox x="97" y="41" label="Green" id="cbGreen" selected="false" visible="true" enabled="false"/>
+                    <mx:CheckBox x="186" y="41" label="Blue" id="cbBlue" selected="false" visible="true" enabled="false"/>
+                    <mx:CheckBox x="369" y="41" label="Gray" id="cbGray" selected="false" visible="true" enabled="false"/>
+                    <mx:CheckBox x="265" y="41" label="Luminosity" id="cbLuminosity" selected="false" visible="true" enabled="false"/>
+                    <mx:CheckBox x="15" y="60" label="Cyan" id="cbCyan" selected="false" visible="true" enabled="false"/>
+                    <mx:CheckBox x="97" y="60" label="Magenta" id="cbMagenta" selected="false" visible="true" enabled="false"/>
+                    <mx:CheckBox x="186" y="60" label="Yellow" id="cbYellow" selected="false" visible="true" enabled="false"/>
+                    <mx:CheckBox x="265" y="60" label="Black" id="cbBlack" selected="false" visible="true" enabled="false"/>
+                    <mx:Button x="451" y="56" label="Get Historam" id="btnHistogramOK" click="callSampleGetHistogram();" visible="true" enabled="false"/>
+                    <mx:Label x="12" y="12" text="Document:" id="lblHistogramTargetDoc" width="70" visible="true"/>                            
+                
+                <mx:VSlider id="hSlider" visible="true"
+                    dataTipPlacement="top" 
+                    minimum="0" value="{maxData}"
+                    snapInterval="1" tickInterval="5000"
+                    change="changeSize();" x="535" y="93" height="247" enabled="false"/>
+                <mx:Button x="484" y="10" label="Browse" id="btnBrowse" click="browseHistogramFile();"/>
+                <mx:TextInput x="85" y="10" width="391" id="txtHistogtamDocName" editable="false"/>
+                </mx:Panel>
+            </mx:Canvas>
+            <!-- ******************************************** -->
+            <!-- Tab 4: Photoshop TV -->
+            <!-- ******************************************** -->                    
+            <mx:Canvas label="Photoshop TV" creationComplete="feedRequestPhotoshopTV.send()" width="100%" height="100%">
+                <mx:Panel x="10" y="10"  width="97%" height="95%" layout="absolute" title="{feedRequestPhotoshopTV.lastResult.rss.channel.title}">
+                <mx:HDividedBox width="98%" height="98%" x="5" y="5">
+                <mx:VBox id="vBoxLeft" horizontalAlign="right" width="100%" height="100%">
+	                <mx:VDividedBox x="10" y="10" width="100%" height="100%">
+	                    <mx:DataGrid id="dgPSTVPosts"
+	                    dataProvider="{feedRequestPhotoshopTV.lastResult.rss.channel.item}" height="100%" width="100%">
+	                    <mx:columns>
+	                        <mx:DataGridColumn headerText="Posts" dataField="title" />
+	                        <mx:DataGridColumn headerText="Date" dataField="pubDate" />
+	                    </mx:columns>
+	                    </mx:DataGrid>
+	                    <mx:TextArea 
+	                    htmlText="{dgPSTVPosts.selectedItem.description}"  height="100%" width="100%"/>
+	                </mx:VDividedBox>
+	                <mx:LinkButton x="241" y="299" label="Read Full Post" 
+	                click="navigateToURL(new URLRequest(dgPSTVPosts.selectedItem.link));" />
+                </mx:VBox>
+                <mx:VBox id="vBoxRight" horizontalAlign="right" width="100%" height="100%">
+	                <mx:Text text="Latest Episode"/>
+	                <mx:VideoDisplay x="241" y="12" toolTip="Tip: Drag the divider to resize the video." autoPlay="false" id="myVid" cornerRadius="3" width="100%" height="100%" backgroundColor="#ffffff">
+    	            	<mx:source>http://www.photoshopguys.com/episodes/current.flv</mx:source>
+	                </mx:VideoDisplay>
+
+	                <mx:HBox>
+	                    <mx:Button label="Play" click="myVid.play();"/>
+	                    <mx:Button label="Pause" click="myVid.pause();"/>
+	                    <mx:Button label="Stop" click="myVid.stop();"/>
+	                </mx:HBox>
+    	            <mx:LinkButton label="photoshoptv.com" width="115" click="navigateToURL(psTV)"/>
+                </mx:VBox>
+                </mx:HDividedBox>
+
+                </mx:Panel>
+            </mx:Canvas>
+            <mx:Canvas label="Adobe Blogs" creationComplete="feedRequestAdobeBlog.send()" width="100%" height="100%">
+                <mx:Panel x="10" y="10" width="97%" height="95%" layout="absolute"
+                	title="Photoshop Blog">
+                	<mx:LinkButton x="453" y="318" label="Read Full Post" 
+                click="navigateToURL(new URLRequest(dgPosts.selectedItem.link));" />
+                <mx:VDividedBox x="5" y="5" width="98%" height="90%">
+                    <mx:DataGrid id="dgPosts" width="100%"
+                    dataProvider="{feedRequestAdobeBlog.lastResult.rss.channel.item}" height="100%"> 
+                    <mx:columns>
+                        <mx:DataGridColumn headerText="Posts" dataField="title" />
+                        <mx:DataGridColumn headerText="Date" dataField="pubDate" />
+                    </mx:columns>
+                    </mx:DataGrid>
+                    <mx:TextArea width="100%" 
+                    htmlText="{dgPosts.selectedItem.description}"  height="100%"/>
+                </mx:VDividedBox>
+                
+                
+                </mx:Panel>
+            </mx:Canvas>
+            
+        </mx:TabNavigator>
+    </mx:VBox>
+    <mx:Spacer/>
+    <mx:VBox width="100%" horizontalAlign="right">
+    <mx:Button label="Exit" width="134" id="btnExit" mouseOver="callExitAppLabel(event)" mouseOut="callDefaultLabel(event)" click="callExitApp();" textAlign="center"/>
+    </mx:VBox>
+   	</mx:VBox>
+</mx:Application>
