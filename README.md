@@ -34,3 +34,6 @@ http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/photoshop/p
 
 #####Photoshop Document Specification
 http://www.adobe.com/devnet-apps/photoshop/fileformatashtml/
+
+###AUTHOR
+Jeff Davis <a href="http://tahoedesigner.github.com">@tahoedesigner</a>
