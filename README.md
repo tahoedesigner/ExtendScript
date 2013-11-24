@@ -11,7 +11,7 @@ version.
 <pre>Mac: <hard drive>/Applications/Adobe Photoshop CC/Presets/Scripts/
 WIN: C:\Program Files\Adobe\Adobe Photoshop CC\Presets\Scripts\ </pre> 
 2. Open Photoshop CC
-3. Go to File > Scripts > "Hello World, or The Name of the script you want to run"
+3. Go to File > Scripts > "Hello World, or The Name of your script"
 
 
 ###HELLO WORLD! EXAMPLES
