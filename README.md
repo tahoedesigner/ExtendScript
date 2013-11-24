@@ -36,4 +36,4 @@ http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/photoshop/p
 http://www.adobe.com/devnet-apps/photoshop/fileformatashtml/
 
 ###AUTHOR
-Jeff Davis <a href="http://tahoedesigner.github.com">@tahoedesigner</a>
+Jeff Davis <a href="https://github.com/tahoedesigner">@tahoedesigner</a>
