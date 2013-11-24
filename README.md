@@ -12,7 +12,7 @@ version.
 3. Go to File > Scripts > "The Name of the script you want to run"
 
 
-###EXAMPLES
+###HELLO WORLD! EXAMPLES
 - Dialog Prompt via an Alert
 - Set background and foregrond colors to RGB value
 - Add new color to swatches
@@ -34,6 +34,9 @@ http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/photoshop/p
 
 #####Photoshop Document Specification
 http://www.adobe.com/devnet-apps/photoshop/fileformatashtml/
+
+#####Photoshop DOM
+http://objjob.phrogz.net/pshop/hierarchy
 
 ###AUTHOR
 Jeff Davis <a href="https://github.com/tahoedesigner">@tahoedesigner</a>
