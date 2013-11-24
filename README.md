@@ -7,9 +7,11 @@ version.
 
 ###INSTALLING EXTENDSCRIPT
 
-1. Download the repo of files to Photoshop CC/Presets/Scripts/
-2. Open Photoshop
-3. Go to File > Scripts > "The Name of the script you want to run"
+1. Download the repo of files to:
+<pre>Mac: <hard drive>/Applications/Adobe Photoshop CS2/Presets/Scripts/
+PC: C:\Program Files\Adobe\Adobe Photoshop CS2\Presets\Scripts\</pre> 
+2. Open Photoshop CC
+3. Go to File > Scripts > "Hello World, or The Name of the script you want to run"
 
 
 ###HELLO WORLD! EXAMPLES
