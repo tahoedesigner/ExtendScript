@@ -26,11 +26,11 @@ version.
 ###RESOURCES
 Additional references from Adobe are available below.
 
-Photoshop CC Scripting Guide
+#####Photoshop CC Scripting Guide
 http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/photoshop/pdfs/photoshop-cc-scripting-guide.pdf
 
-Photoshop CC JavaScript Reference
+#####Photoshop CC JavaScript Reference
 http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/photoshop/pdfs/photoshop-cc-javascript-ref.pdf
 
-Photoshop Document Specification
+#####Photoshop Document Specification
 http://www.adobe.com/devnet-apps/photoshop/fileformatashtml/
