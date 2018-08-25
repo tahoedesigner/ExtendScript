@@ -29,10 +29,10 @@ WIN: C:\Program Files\Adobe\Adobe Photoshop CC\Presets\Scripts\ </pre>
 Additional references from Adobe are available below.
 
 ##### Photoshop CC Scripting Guide
-http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/photoshop/pdfs/photoshop-cc-scripting-guide.pdf
+http://www.adobe.com/content/dam/Adobe/en/devnet/photoshop/pdfs/photoshop-cc-scripting-guide.pdf
 
 ##### Photoshop CC JavaScript Reference
-http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/photoshop/pdfs/photoshop-cc-javascript-ref.pdf
+http://www.adobe.com/content/dam/Adobe/en/devnet/photoshop/pdfs/photoshop-cc-javascript-ref.pdf
 
 ##### Photoshop Document Specification
 http://www.adobe.com/devnet-apps/photoshop/fileformatashtml/
