@@ -8,15 +8,15 @@ version.
 ### INSTALLING EXTENDSCRIPT
 
 1. Download the repo of files to:
-<pre>Mac: <hard drive>/Applications/Adobe Photoshop CC/Presets/Scripts/
-WIN: C:\Program Files\Adobe\Adobe Photoshop CC\Presets\Scripts\ </pre> 
+<pre><b>Mac:</b> <hard drive>/Applications/Adobe Photoshop CC/Presets/Scripts/</pre> 
+<pre><b>WIN:</b> C:\Program Files\Adobe\Adobe Photoshop CC\Presets\Scripts\ </pre> 
 2. Open Photoshop CC
 3. Go to File > Scripts > "Hello World, or The Name of your script"
 
 
 ### HELLO WORLD! EXAMPLES
 - Dialog Prompt via an Alert
-- Set background and foregrond colors to RGB value
+- Set background and foreground colors to RGB value
 - Add new color to swatches
 - Working with Dialog to create custom text in a layer set
 - Working with Document Object (height, width, resolution, file name)
